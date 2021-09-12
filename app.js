@@ -5,7 +5,9 @@ var app=express()
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
-
+app.get('/',(req,res)=>{
+    res.send("welcome to  my website")
+})
 app.post('/',(req,res)=>{
 
     var getName= req.body.name
@@ -21,6 +23,6 @@ app.post('/read',(req,res)=>{
 
     res.json({"result":sum})
 })
-app.listen(3000,()=>{
+app.listen(process.env.PORT||3000,()=>{
     console.json("server started at http://localhost:3000/")
 })
